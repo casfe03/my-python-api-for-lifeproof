@@ -1,6 +1,9 @@
 # Usa uma imagem base do Python
 FROM python:3.9
 
+# Instala o CMake
+RUN apt-get update && apt-get install -y cmake
+
 # Define o diretório de trabalho como /app
 WORKDIR /app
 
