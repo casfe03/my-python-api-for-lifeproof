@@ -1,5 +1,16 @@
-# Usa uma imagem base com dlib pré-instalado
-FROM ageitgey/face_recognition
+# Usa uma imagem base do Python
+FROM python:3.9
+
+# Instala as dependências necessárias para o pacote dlib
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    cmake \
+    libopenblas-dev \
+    liblapack-dev \
+    libx11-dev \
+    libgtk-3-dev \
+    libboost-all-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 # Define o diretório de trabalho como /app
 WORKDIR /app
