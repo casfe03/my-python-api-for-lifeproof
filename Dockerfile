@@ -1,15 +1,5 @@
-# Usa uma imagem base do Python 3.9 slim buster
-FROM python:3.9-slim-buster
-
-# Instala as dependências necessárias
-RUN apt-get update && apt-get install -y \
-    cmake \
-    libopenblas-dev \
-    liblapack-dev \
-    libx11-dev \
-    libgtk-3-dev \
-    libboost-all-dev \
-    && rm -rf /var/lib/apt/lists/*
+# Usa uma imagem base com dlib pré-instalado
+FROM ageitgey/face_recognition
 
 # Define o diretório de trabalho como /app
 WORKDIR /app
