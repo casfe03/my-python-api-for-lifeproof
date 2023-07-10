@@ -29,11 +29,10 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copia os arquivos restantes para o diretório de trabalho
-COPY app app
+COPY ./app /app
 
 # Expõe a porta 8080 (ou a porta que você desejar)
 EXPOSE 8080
 
 # Define o comando para iniciar o aplicativo
-CMD ["python", "app/main.py"]
-
+CMD ["python", "main.py"]
