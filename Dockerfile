@@ -1,25 +1,15 @@
-# Usa uma imagem base do Python
-FROM python:3.9
+# Usa uma imagem base do Python 3.9 slim buster
+FROM python:3.9-slim-buster
 
-# Instala as dependências necessárias para compilar o dlib
+# Instala as dependências necessárias
 RUN apt-get update && apt-get install -y \
-    build-essential \
     cmake \
     libopenblas-dev \
     liblapack-dev \
     libx11-dev \
-    libgtk-3-dev
-
-# Faz o clone do repositório do dlib
-RUN git clone https://github.com/davisking/dlib.git
-
-# Compila o dlib
-RUN mkdir -p /dlib/build && \
-    cd /dlib/build && \
-    cmake .. && \
-    cmake --build . && \
-    cd .. && \
-    python setup.py install
+    libgtk-3-dev \
+    libboost-all-dev \
+    && rm -rf /var/lib/apt/lists/*
 
 # Define o diretório de trabalho como /app
 WORKDIR /app
