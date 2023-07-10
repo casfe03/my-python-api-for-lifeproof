@@ -1,11 +1,6 @@
-FROM python:3.6.1
+FROM orgoro/dlib-opencv-python 
 
 WORKDIR /app
-
-RUN apt-get update -y && \
-    apt-get install build-essential cmake pkg-config -y
-
-RUN pip install dlib==19.9.0
 
 COPY . .
 
