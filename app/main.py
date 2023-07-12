@@ -56,8 +56,14 @@ def upload_images():
         # Realiza a comparação de rostos
         faces_match, similarity = compare_faces(cnh_cv_image, face_cv_image)
 
+        # Define a mensagem com base no resultado da comparação de rostos
+        if faces_match:
+            message = "Os rostos correspondem."
+        else:
+            message = "Os rostos não correspondem."
+
         # Retorna o resultado como uma resposta JSON
-        return jsonify({'faces_match': faces_match, 'similarity': similarity})
+        return jsonify({'message': message, 'similarity': similarity})
 
     return render_template('upload.html')
 
