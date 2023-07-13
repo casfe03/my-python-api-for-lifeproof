@@ -5,7 +5,7 @@ import numpy as np
 
 app = Flask(__name__)
 
-def compare_faces(image1, image2, threshold=350):
+def compare_faces(image1, image2, threshold=750):
     # Inicializa o detector de faces do dlib e o alinhador de faces
     detector = dlib.get_frontal_face_detector()
     predictor = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
